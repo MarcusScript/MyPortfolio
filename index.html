@@ -48,46 +48,46 @@
         }
         .nav-links a:hover { color: var(--accent); }
 
-        /* --- Sections --- */
+        /* --- Hero --- */
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 10%; }
+        .hero-content { display: flex; align-items: center; gap: 40px; max-width: 1200px; width: 100%; }
+        .hero-text { flex: 1; text-align: left; }
+        .hero-text h4 { font-size: 1rem; color: #444; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        .hero-text h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero-text h1 span { color: var(--accent); }
+        .hero-text p { color: var(--text-muted); max-width: 500px; margin-bottom: 30px; font-size: 1rem; }
+        .hero-img-container { flex: 1; display: flex; justify-content: center; }
+        .hero-img { width: 100%; max-width: 450px; border-radius: 4px; }
+
+        /* --- Experience --- */
         section { padding: 120px 10% 80px 10%; text-align: center; }
         .section-tag { color: var(--accent); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
         .section-title { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 10px 0 60px 0; }
 
-        .info-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 20px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            text-align: left; 
-        }
+        .experience-container { max-width: 1100px; margin: 0 auto; text-align: left; }
+        .exp-item { margin-bottom: 60px; padding-left: 30px; border-left: 2px solid #eee; position: relative; }
+        .exp-item::before { content: ''; position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; }
+        .exp-header { margin-bottom: 15px; }
+        .exp-date { font-size: 0.8rem; font-weight: 700; color: var(--accent); }
+        .exp-role { font-size: 1.2rem; font-weight: 800; color: var(--primary); text-transform: uppercase; }
+        .exp-company { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+        .exp-list { list-style: none; }
+        .exp-list li { font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; position: relative; padding-left: 20px; }
+        .exp-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
 
-        .info-card { 
-            background: var(--light-bg); 
-            padding: 25px; 
-            border-radius: 8px; 
-            border-left: 4px solid transparent; 
-            transition: 0.3s; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        /* --- Grids --- */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; text-align: left; }
+        .info-card { background: var(--light-bg); padding: 25px; border-radius: 8px; border-left: 4px solid transparent; transition: 0.3s; }
         .info-card:hover { border-left-color: var(--accent); background: #f1f1f1; transform: translateY(-3px); }
-        .info-card h4 { font-size: 0.85rem; color: var(--primary); margin-bottom: 5px; text-transform: uppercase; line-height: 1.3; }
-        .info-card p { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+        .info-card h4 { font-size: 0.85rem; color: var(--primary); margin-bottom: 5px; text-transform: uppercase; }
+        .info-card p { font-size: 0.8rem; color: var(--text-muted); }
 
-        /* --- Hero --- */
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 10%; }
-        .hero-content { display: flex; align-items: center; gap: 40px; max-width: 1200px; width: 100%; }
-        .hero-text { flex: 1; }
-        .hero-text h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; }
-        .hero-text h1 span { color: var(--accent); }
-        .hero-img-container { flex: 1; display: flex; justify-content: center; }
-        .hero-img { width: 100%; max-width: 420px; }
+        footer { padding: 60px; text-align: center; background: #111; color: #555; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
 
         @media (max-width: 900px) {
             .hero-content { flex-direction: column; text-align: center; }
             .hero-text h1 { font-size: 2.5rem; }
+            .nav-bar { padding: 15px 5%; }
         }
     </style>
 </head>
@@ -95,11 +95,12 @@
 
 <nav class="nav-bar">
     <a href="#home" class="logo-container">
-        <img src="MarkAnalyticsLogo.png" alt="Logo" class="logo-img">
+        <img src="MarkAnalyticsLogo.png" alt="Mark Analytics" class="logo-img">
         <span class="logo-text">Mark Analytics</span>
     </a>
     <div class="nav-links">
         <a href="#home">Home</a>
+        <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#certifications">Certifications</a>
     </div>
@@ -110,49 +111,113 @@
         <div class="hero-text">
             <h4>Specialist – Performance Analyst</h4>
             <h1>HI! I'M <span>MARK.</span></h1>
-            <p>I transform complex data into actionable executive insights. Expert in Power BI, VBA automation, and performance management.</p>
+            <p>I transform complex data into actionable executive insights. Expert in Power BI dashboarding, VBA automation, and operational performance management for global property portfolios.</p>
+            <div style="font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; border-left: 3px solid var(--accent); padding-left: 15px;">
+                ✉️ markanthonyalipao@gmail.com <br>
+                📱 (+63) 956 - 3080 - 018 <br>
+                📍 Marikina City, Philippines
+            </div>
         </div>
         <div class="hero-img-container">
-            <img src="IMG_3884.jpg" alt="Mark Alipao" class="hero-img">
+            <img src="IMG_3884.jpg" alt="Mark Anthony Alipao" class="hero-img">
         </div>
     </div>
 </section>
 
-<section id="education" style="background: var(--light-bg);">
-    <span class="section-tag">Academic Background</span>
+<section id="experience" style="background: var(--light-bg);">
+    <span class="section-tag">Career History</span>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="experience-container">
+        
+        <div class="exp-item">
+            <div class="exp-header">
+                <span class="exp-date">JUNE 2025 – PRESENT</span>
+                <h3 class="exp-role">Specialist – Performance Analyst</h3>
+                <p class="exp-company">Jones Lang LaSalle (JLL) – McKinley, Taguig City</p>
+            </div>
+            <ul class="exp-list">
+                <li>Enhanced organizational visibility by developing Power BI dashboards to track KPIs and translate complex data into actionable insights.</li>
+                <li>Automated reporting workflows using Excel macros for maintenance and customer satisfaction tracking, reducing manual processing time by over 60%.</li>
+                <li>Monitored 32 key metrics across a multi-site property portfolio to ensure contractual compliance and inform executive decision-making.</li>
+                <li>Managed account data as an Account Champion for a leading Australian diagnostic imaging provider.</li>
+            </ul>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-header">
+                <span class="exp-date">JUNE 2024 – MAY 2025</span>
+                <h3 class="exp-role">Senior Data Analyst</h3>
+                <p class="exp-company">Jones Lang LaSalle (JLL) – McKinley, Taguig City</p>
+            </div>
+            <ul class="exp-list">
+                <li>Architected Corrigo-EaaSP integrations for new client onboarding and optimized cross-functional workflows.</li>
+                <li>Delivered bi-monthly executive presentations featuring data-driven strategic improvement recommendations.</li>
+                <li>Maintained database integrity through proactive monitoring, regular audits, and strict access controls.</li>
+            </ul>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-header">
+                <span class="exp-date">MARCH 2023 – JUNE 2024</span>
+                <h3 class="exp-role">Branch Manager / Administrator</h3>
+                <p class="exp-company">Vision Express – Chino Roces, Makati City</p>
+            </div>
+            <ul class="exp-list">
+                <li>Directed end-to-end store operations including inventory management, P&L oversight, and budget analysis.</li>
+                <li>Recruited and trained a high-performing retail team while establishing sales targets and conversion strategies.</li>
+                <li>Optimized product engagement through strategic visual merchandising and vendor relationship management.</li>
+            </ul>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-header">
+                <span class="exp-date">OCTOBER 2014 – SEPTEMBER 2022</span>
+                <h3 class="exp-role">Branch Supervisor / Manager</h3>
+                <p class="exp-company">Landmark Group / Saudi Brothers – Saudi Arabia</p>
+            </div>
+            <ul class="exp-list">
+                <li>Managed operations for a 13,000 sq ft retail location, leading a team of 20 staff members.</li>
+                <li>Served as a Certified Company Coach Buddy, designing training programs that improved team service quality.</li>
+                <li>Analyzed foot traffic, ATV, and UPT metrics to optimize product mix and drive revenue growth.</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<section id="education">
+    <span class="section-tag">Learning</span>
     <h2 class="section-title">Education</h2>
     <div class="info-grid">
         <div class="info-card">
             <h4>Bachelor of Science in Business Administration</h4>
-            <p>Polytechnic University of the Philippines | Major: Marketing Management</p>
+            <p>Polytechnic University of the Philippines | Marketing Management</p>
         </div>
         <div class="info-card">
             <h4>Diploma in Computer Programming</h4>
-            <p>Pamantasan ng Lungsod ng Marikina | Major: Hardware and Software</p>
+            <p>Pamantasan ng Lungsod ng Marikina | Hardware and Software</p>
         </div>
     </div>
 </section>
 
-<section id="certifications">
-    <span class="section-tag">Professional Credentials</span>
-    <h2 class="section-title">Training & Certifications</h2>
+<section id="certifications" style="background: var(--light-bg);">
+    <span class="section-tag">Credentials</span>
+    <h2 class="section-title">Certifications</h2>
     <div class="info-grid">
         <div class="info-card"><h4>Google Data Analytics Professional</h4><p>Google</p></div>
-        <div class="info-card"><h4>Extract, Transform and Load Data in Power BI</h4><p>Microsoft</p></div>
+        <div class="info-card"><h4>ETL Data in Power BI</h4><p>Microsoft</p></div>
         <div class="info-card"><h4>Certified Coach Buddy</h4><p>Landmark Arabia</p></div>
         <div class="info-card"><h4>Lean Six Sigma White Belt</h4><p>MF Treinementos</p></div>
         <div class="info-card"><h4>Green Belt Certification</h4><p>JLL (On-Going)</p></div>
         <div class="info-card"><h4>Data Analytics Fundamentals</h4><p>Datasense Analytics</p></div>
-        <div class="info-card"><h4>Harnessing the Power of Data with Power BI</h4><p>Microsoft</p></div>
-        <div class="info-card"><h4>Excel Skills for Business: Intermediate I</h4><p>Macquarie University</p></div>
+        <div class="info-card"><h4>Excel Skills for Business</h4><p>Macquarie University</p></div>
         <div class="info-card"><h4>Foundation of Leaders Excellence</h4><p>OCCI</p></div>
-        <div class="info-card"><h4>Excel Skills for Business Essentials</h4><p>Macquarie University</p></div>
-        <div class="info-card"><h4>Preparing Data for Analysis with MS Excel</h4><p>Microsoft</p></div>
         <div class="info-card"><h4>Advanced Leadership Course</h4><p>OCCI</p></div>
+        <div class="info-card"><h4>Preparing Data with MS Excel</h4><p>Microsoft</p></div>
     </div>
 </section>
 
-<footer style="padding: 60px; text-align: center; background: #111; color: #555; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;">
+<footer>
     © 2026 Mark Anthony Alipao | Performance Analyst
 </footer>
 
