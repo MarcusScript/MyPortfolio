@@ -1,123 +1,128 @@
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Anthony Alipao | Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
-    :root {
-        --primary: #0f172a;
-        --accent: #ff4d4d; 
-        --text-main: #1e293b;
-        --text-muted: #64748b;
-        --white: #ffffff;
-        --bg: #f8fafc;
-    }
+        :root {
+            --primary: #0f172a;
+            --accent: #ff4d4d; 
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --bg: #f8fafc;
+        }
 
-    * { box-sizing: border-box; scroll-behavior: smooth; }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--white);
-        color: var(--text-main);
-        margin: 0;
-        line-height: 1.6;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+        }
 
-    /* Floating Navigation */
-    .nav-bar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 8%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        z-index: 1000;
-        border-bottom: 1px solid #f1f5f9;
-    }
+        /* Floating Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #f1f5f9;
+        }
 
-    .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--primary); }
-    .nav-links { display: flex; gap: 25px; }
-    .nav-links a { 
-        text-decoration: none; 
-        color: var(--text-main); 
-        font-size: 0.7rem; 
-        font-weight: 800; 
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: 0.3s;
-    }
-    .nav-links a:hover { color: var(--accent); }
+        .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--primary); }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-main); 
+            font-size: 0.7rem; 
+            font-weight: 800; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
 
-    /* Updated Hero Section */
-    .hero {
-        min-height: 100vh; /* Changed from height to min-height for better scaling */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 80px 10% 0 10%; /* Added top padding for the fixed nav */
-        background: radial-gradient(circle at 75% 50%, #f8fafc 0%, #ffffff 100%);
-    }
+        /* Hero Section Fixed */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 10% 50px 10%;
+            background: radial-gradient(circle at 75% 50%, #f8fafc 0%, #ffffff 100%);
+        }
 
-    .hero-text { flex: 1; max-width: 600px; }
-    
-    /* Image Container Fix */
-    .hero-img-container { 
-        width: 400px; 
-        height: 500px; 
-        position: relative;
-        margin-left: 50px;
-    }
+        .hero-text { flex: 1; max-width: 600px; }
+        .hero-text h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-main); margin-bottom: 10px; font-weight: 400; }
+        .hero-text h2 { font-size: 4.5rem; margin: 0; font-weight: 800; line-height: 0.9; color: var(--primary); }
+        .hero-text h2 span { color: var(--accent); }
+        .hero-text p { color: var(--text-muted); font-size: 0.95rem; margin: 30px 0; max-width: 480px; text-align: left; }
 
-    .hero-img { 
-        width: 100%; 
-        height: 100%; 
-        object-fit: cover; /* This fills the container without white gaps */
-        object-position: top; /* Ensures your face stays in frame */
-        border-radius: 30px; /* Modern rounded look */
-        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
-    }
+        /* Updated Image Container */
+        .hero-img-container { 
+            width: 400px; 
+            height: 500px; 
+            position: relative;
+            flex-shrink: 0;
+        }
 
-    /* Remove the duplicate .hero-container class at the bottom of your style tag 
-       as it was conflicting with .hero */
+        .hero-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            object-position: top;
+            border-radius: 30px;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1)); 
+        }
 
-    /* Content Sections */
-    section.content-block { padding: 100px 10%; background: var(--bg); }
-    .section-title { margin-bottom: 50px; }
-    .section-title h2 { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 0; }
-    .section-title .underline { width: 50px; height: 5px; background: var(--accent); margin-top: 10px; }
+        /* Content Sections */
+        section.content-block { padding: 100px 10%; background: var(--bg); }
+        .section-title { margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 0; }
+        .section-title .underline { width: 50px; height: 5px; background: var(--accent); margin-top: 10px; }
 
-    /* Experience Card */
-    .card { background: white; padding: 40px; border-radius: 24px; margin-bottom: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
-    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
-    .job-title { font-size: 1.15rem; font-weight: 800; color: var(--primary); text-transform: uppercase; }
-    .job-date { font-weight: 700; color: var(--accent); font-size: 0.8rem; background: #fff1f1; padding: 6px 14px; border-radius: 50px; }
-    .company-name { display: block; font-weight: 600; color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem; }
+        /* Experience Card */
+        .card { background: white; padding: 40px; border-radius: 24px; margin-bottom: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .job-title { font-size: 1.15rem; font-weight: 800; color: var(--primary); text-transform: uppercase; }
+        .job-date { font-weight: 700; color: var(--accent); font-size: 0.8rem; background: #fff1f1; padding: 6px 14px; border-radius: 50px; }
+        .company-name { display: block; font-weight: 600; color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem; }
 
-    .bullet-list { padding-left: 20px; margin: 0; }
-    .bullet-list li { font-size: 0.88rem; color: #475569; margin-bottom: 12px; line-height: 1.6; text-align: justify; }
+        .bullet-list { padding-left: 20px; margin: 0; }
+        .bullet-list li { font-size: 0.88rem; color: #475569; margin-bottom: 12px; line-height: 1.6; text-align: justify; }
 
-    /* Grid Layouts for Education/Certs/Skills */
-    .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-    .info-item { background: white; padding: 25px; border-radius: 15px; border-left: 4px solid var(--accent); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-    .info-item h4 { margin: 0 0 5px 0; font-size: 1rem; color: var(--primary); }
-    .info-item p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+        /* Grid Layouts */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .info-item { background: white; padding: 25px; border-radius: 15px; border-left: 4px solid var(--accent); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .info-item h4 { margin: 0 0 5px 0; font-size: 1rem; color: var(--primary); }
+        .info-item p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
 
-    footer { padding: 40px 10%; background: var(--primary); color: white; text-align: center; font-size: 0.8rem; opacity: 0.7; }
+        footer { padding: 40px 10%; background: var(--primary); color: white; text-align: center; font-size: 0.8rem; opacity: 0.7; }
 
-    @media (max-width: 1050px) {
-        .hero { flex-direction: column; text-align: center; height: auto; padding-top: 120px; padding-bottom: 50px; }
-        .hero-text h2 { font-size: 3rem; }
-        .hero-img-container { width: 300px; height: 350px; }
-        .nav-links { display: none; }
-    }
-
-    .hero-container { /* Replace with your actual class name */
-    display: flex;
-    align-items: center; /* This vertically centers the text and photo */
-    justify-content: space-between;
-    height: 100vh; /* Optional: makes the section fill the screen */
-}
-</style>
+        /* Responsive Fixes */
+        @media (max-width: 1050px) {
+            .hero { flex-direction: column; text-align: center; height: auto; padding-top: 120px; }
+            .hero-text { margin-bottom: 50px; }
+            .hero-text h2 { font-size: 3rem; }
+            .hero-text p { margin: 20px auto; }
+            .hero-img-container { width: 300px; height: 380px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
 
 <nav class="nav-bar">
     <div class="logo">ALIPAO</div>
@@ -143,7 +148,7 @@
         </div>
     </div>
     <div class="hero-img-container">
-        <img src="IMG_3884.jpg" alt="Mark Anthony Alipao">
+        <img src="IMG_3884.jpg" alt="Mark Anthony Alipao" class="hero-img">
     </div>
 </section>
 
@@ -185,12 +190,11 @@
         </div>
         <span class="company-name">Jones Lang LaSalle (JLL) – McKinley, Taguig City</span>
         <ul class="bullet-list">
-            <li>Significantly enhanced organizational visibility and strategic decision-making by developing and distributing comprehensive Power BI reports and dashboards tracking all key performance indicators (KPIs), translating complex data into actionable executive insights.</li>
+            <li>Significantly enhanced organizational visibility and strategic decision-making by developing and distributing comprehensive Power BI reports and dashboards tracking all key performance indicators (KPIs).</li>
             <li>Safeguarded business-critical data integrity by managing database performance, security protocols, and implementing Excel macros and VBA to automate reporting processes.</li>
-            <li>Monitored 32 key metrics across a multi-site property portfolio spanning facilities operations and transaction management, producing automated monthly, quarterly, and annual reports.</li>
-            <li>Maintained Service Level Agreement (SLA) compliance by tracking critical operational metrics across major commercial properties, reducing manual processing time by over 60%.</li>
-            <li>Account Champion for a leading Australian diagnostic imaging provider; oversee all Corrigo data requests and serve as primary liaison.</li>
-            <li>Directed quality assurance for Maintenance Planners, systematically identifying process discrepancies and providing targeted coaching to maintain service consistency.</li>
+            <li>Monitored 32 key metrics across a multi-site property portfolio spanning facilities operations and transaction management.</li>
+            <li>Maintained Service Level Agreement (SLA) compliance by tracking critical operational metrics, reducing manual processing time by over 60%.</li>
+            <li>Account Champion for a leading Australian diagnostic imaging provider; oversee all Corrigo data requests.</li>
         </ul>
     </div>
 
@@ -201,37 +205,9 @@
         </div>
         <span class="company-name">Jones Lang LaSalle (JLL) – Taguig City</span>
         <ul class="bullet-list">
-            <li>Served as the primary technical liaison for the Corrigo platform, troubleshooting complex system issues and resolving user queries to maintain operational continuity.</li>
-            <li>Safeguarded database integrity through proactive monitoring, regular audits, root cause analysis on data quality issues, and strict access controls.</li>
-            <li>Delivered bi-monthly executive presentations featuring data-driven strategic improvement recommendations and business intelligence.</li>
-            <li>Architected platform integrations for new client onboarding, including comprehensive configuration of properties, assets, and schedules.</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <span class="job-title">Branch Manager / Administrator</span>
-            <span class="job-date">March 2023 – June 2024</span>
-        </div>
-        <span class="company-name">Vision Express – Makati City</span>
-        <ul class="bullet-list">
-            <li>Directed end-to-end store operations including inventory management, receiving workflows, and P&L oversight with full accountability for sales performance and team management.</li>
-            <li>Built and developed high-performing retail team through end-to-end talent management including pre-employment interviews, new hire onboarding, and skills training.</li>
-            <li>Optimized workforce efficiency by managing staff scheduling, payroll documentation, and daily task delegation while monitoring productivity metrics.</li>
-            <li>Ensured operational excellence through strict SOP compliance, regular quality audits, and proactive identification of gaps to maintain company standards.</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <span class="job-title">Branch Supervisor cum Manager / Asst. Manager</span>
-            <span class="job-date">October 2014 – September 2022</span>
-        </div>
-        <span class="company-name">Landmark Group / Saudi Brothers Commercial – Saudi Arabia</span>
-        <ul class="bullet-list">
-            <li>Led frontline store operations, directing daily workflows and ensuring team alignment with company service standards and visual excellence.</li>
-            <li>Managed shrinkage prevention and operational compliance with full authority in the Manager's absence.</li>
-            <li>Certified Company Coach Buddy; designed and delivered training programs for store staff to enhance service quality.</li>
+            <li>Served as the primary technical liaison for the Corrigo platform, troubleshooting complex system issues.</li>
+            <li>Safeguarded database integrity through proactive monitoring, regular audits, and root cause analysis.</li>
+            <li>Delivered bi-monthly executive presentations featuring data-driven strategic improvement recommendations.</li>
         </ul>
     </div>
 </section>
@@ -273,3 +249,6 @@
 <footer>
     <p>© 2026 Mark Anthony Alipao. Thank you for visiting my portfolio site.</p>
 </footer>
+
+</body>
+</html>
