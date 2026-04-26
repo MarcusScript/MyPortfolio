@@ -48,7 +48,7 @@
         }
         .nav-links a:hover { color: var(--accent); }
 
-        /* --- Global Section Settings --- */
+        /* --- Sections --- */
         section { padding: 120px 10% 80px 10%; text-align: center; }
         .section-tag { color: var(--accent); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
         .section-title { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 10px 0 60px 0; }
@@ -57,35 +57,33 @@
         .hero { height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 10%; }
         .hero-content { display: flex; align-items: center; gap: 40px; max-width: 1200px; width: 100%; }
         .hero-text { flex: 1; text-align: left; }
-        .hero-text h4 { font-size: 1rem; color: #444; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
         .hero-text h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
         .hero-text h1 span { color: var(--accent); }
         .hero-text p { color: var(--text-muted); max-width: 500px; margin-bottom: 30px; font-size: 1rem; }
-        .hero-img-container { flex: 1; display: flex; justify-content: center; }
         .hero-img { width: 100%; max-width: 450px; }
 
         /* --- Experience --- */
         .experience-container { max-width: 1100px; margin: 0 auto; text-align: left; }
-        .exp-item { margin-bottom: 60px; padding-left: 30px; border-left: 2px solid #eee; position: relative; }
-        .exp-item::before { content: ''; position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; }
+        .exp-item { margin-bottom: 50px; padding-left: 30px; border-left: 2px solid #eee; position: relative; }
+        .exp-item::before { content: ''; position: absolute; left: -6.5px; top: 0; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; }
         .exp-date { font-size: 0.8rem; font-weight: 700; color: var(--accent); }
         .exp-role { font-size: 1.2rem; font-weight: 800; color: var(--primary); text-transform: uppercase; }
         .exp-company { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); margin-bottom: 15px; }
-        .exp-list { list-style: none; }
-        .exp-list li { font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; position: relative; padding-left: 20px; }
+        .exp-list { list-style: none; padding-left: 0; }
+        .exp-list li { font-size: 0.9rem; color: var(--text-main); margin-bottom: 8px; position: relative; padding-left: 20px; }
         .exp-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
 
-        /* --- Skills Progress Bars --- */
-        .skills-container { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; }
-        .skill-bar { margin-bottom: 20px; }
-        .skill-info { display: flex; justify-content: space-between; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; }
-        .progress-bg { height: 4px; background: #eee; width: 100%; border-radius: 2px; }
-        .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+        /* --- Skills Grid --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; text-align: left; }
+        .skill-card { background: var(--light-bg); padding: 25px; border-radius: 8px; transition: 0.3s; border-bottom: 3px solid transparent; }
+        .skill-card:hover { transform: translateY(-5px); border-bottom-color: var(--accent); }
+        .skill-card h4 { font-size: 1rem; color: var(--primary); margin-bottom: 10px; text-transform: uppercase; }
+        .skill-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
 
-        /* --- Education & Certs Grid --- */
+        /* --- Info Grid (Education/Certs) --- */
         .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; text-align: left; }
-        .info-card { background: var(--light-bg); padding: 25px; border-radius: 8px; border-left: 4px solid transparent; transition: 0.3s; }
-        .info-card:hover { border-left-color: var(--accent); background: #f1f1f1; transform: translateY(-3px); }
+        .info-card { background: var(--light-bg); padding: 20px; border-radius: 8px; border-left: 4px solid transparent; transition: 0.3s; }
+        .info-card:hover { border-left-color: var(--accent); background: #f1f1f1; }
         .info-card h4 { font-size: 0.85rem; color: var(--primary); margin-bottom: 5px; text-transform: uppercase; }
         .info-card p { font-size: 0.8rem; color: var(--text-muted); }
 
@@ -93,7 +91,6 @@
 
         @media (max-width: 900px) {
             .hero-content { flex-direction: column; text-align: center; }
-            .skills-container { grid-template-columns: 1fr; }
             .hero-text h1 { font-size: 2.5rem; }
         }
     </style>
@@ -102,7 +99,7 @@
 
 <nav class="nav-bar">
     <a href="#home" class="logo-container">
-        <img src="MarkAnalyticsLogo.png" alt="Mark Analytics" class="logo-img">
+        <img src="MarkAnalyticsLogo.png" alt="Logo" class="logo-img">
         <span class="logo-text">Mark Analytics</span>
     </a>
     <div class="nav-links">
@@ -110,7 +107,6 @@
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
     </div>
 </nav>
 
@@ -119,30 +115,29 @@
         <div class="hero-text">
             <h4>Specialist – Performance Analyst</h4>
             <h1>HI! I'M <span>MARK.</span></h1>
-            <p>I transform complex data into actionable executive insights. Expert in Power BI dashboarding, VBA automation, and operational performance management.</p>
+            <p>I transform complex data into actionable executive insights. Expert in Power BI, VBA automation, and performance management for global portfolios.</p>
             <div style="font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; border-left: 3px solid var(--accent); padding-left: 15px;">
                 ✉️ markanthonyalipao@gmail.com <br>
-                📱 (+63) 956 - 3080 - 018 <br>
-                📍 Marikina City, Philippines
+                📱 (+63) 956 - 3080 - 018
             </div>
         </div>
         <div class="hero-img-container">
-            <img src="IMG_3884.jpg" alt="Mark Anthony Alipao" class="hero-img">
+            <img src="IMG_3884.jpg" alt="Mark Alipao" class="hero-img">
         </div>
     </div>
 </section>
 
 <section id="experience" style="background: var(--light-bg);">
-    <span class="section-tag">Career History</span>
-    <h2 class="section-title">Work Experience</h2>
+    <span class="section-tag">Career</span>
+    <h2 class="section-title">Experience</h2>
     <div class="experience-container">
         <div class="exp-item">
             <span class="exp-date">JUNE 2025 – PRESENT</span>
             <h3 class="exp-role">Specialist – Performance Analyst</h3>
             <p class="exp-company">Jones Lang LaSalle (JLL) – Taguig City</p>
             <ul class="exp-list">
-                <li>Enhanced organizational visibility by developing Power BI dashboards to track KPIs.</li>
-                <li>Automated workflows using Excel macros, reducing manual processing time by over 60%.</li>
+                <li>Enhanced organizational visibility by developing Power BI dashboards to track KPIs and translate complex data.</li>
+                <li>Automated reporting workflows using Excel macros, reducing manual processing time by over 60%.</li>
                 <li>Monitored 32 key metrics across multi-site property portfolios for contractual compliance.</li>
             </ul>
         </div>
@@ -151,27 +146,8 @@
             <h3 class="exp-role">Senior Data Analyst</h3>
             <p class="exp-company">Jones Lang LaSalle (JLL) – Taguig City</p>
             <ul class="exp-list">
-                <li>Architected Corrigo-EaaSP integrations for client onboarding and optimized workflows.</li>
-                <li>Delivered bi-monthly executive presentations with data-driven strategic recommendations.</li>
-                <li>Maintained database integrity through regular audits and strict access controls.</li>
-            </ul>
-        </div>
-        <div class="exp-item">
-            <span class="exp-date">MARCH 2023 – JUNE 2024</span>
-            <h3 class="exp-role">Branch Manager / Administrator</h3>
-            <p class="exp-company">Vision Express – Makati City</p>
-            <ul class="exp-list">
-                <li>Directed store operations including inventory, P&L oversight, and budget analysis.</li>
-                <li>Recruited and trained retail teams while establishing sales targets and conversion strategies.</li>
-            </ul>
-        </div>
-        <div class="exp-item">
-            <span class="exp-date">OCTOBER 2014 – SEPTEMBER 2022</span>
-            <h3 class="exp-role">Branch Supervisor / Manager</h3>
-            <p class="exp-company">Landmark Group / Saudi Brothers – Saudi Arabia</p>
-            <ul class="exp-list">
-                <li>Managed a 13,000 sq ft retail location and a team of 20 staff members.</li>
-                <li>Served as a Certified Company Coach Buddy, improving team service quality through training.</li>
+                <li>Architected Corrigo-EaaSP integrations for client onboarding and optimized cross-functional workflows.</li>
+                <li>Delivered bi-monthly executive presentations with data-driven strategic improvement recommendations.</li>
             </ul>
         </div>
     </div>
@@ -179,31 +155,31 @@
 
 <section id="skills">
     <span class="section-tag">Expertise</span>
-    <h2 class="section-title">Technical Proficiency</h2>
-    <div class="skills-container">
-        <div class="skill-bar">
-            <div class="skill-info"><span>Power BI (DAX, ETL)</span><span>95%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 95%;"></div></div>
+    <h2 class="section-title">Skills & Tools</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h4>Power BI</h4>
+            <p>DAX, Power Query (ETL), Relationship modeling, Visualization, and Dashboard creation.</p>
         </div>
-        <div class="skill-bar">
-            <div class="skill-info"><span>Excel (VBA, Power Pivot)</span><span>90%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 90%;"></div></div>
+        <div class="skill-card">
+            <h4>Excel & VBA</h4>
+            <p>Macro VBA, Power Query, Office Script, Power Pivot, and Advanced Formulas (XLOOKUP, SUMIFS).</p>
         </div>
-        <div class="skill-bar">
-            <div class="skill-info"><span>Google AppScript</span><span>85%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 85%;"></div></div>
+        <div class="skill-card">
+            <h4>Google Ecosystem</h4>
+            <p>AppScript Automation, Looker Studio, and Google Sheets CRUD WebApps.</p>
         </div>
-        <div class="skill-bar">
-            <div class="skill-info"><span>SQL</span><span>80%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+        <div class="skill-card">
+            <h4>Data Languages</h4>
+            <p>Structured Query Language (SQL) and M Language for data transformation.</p>
         </div>
-        <div class="skill-bar">
-            <div class="skill-info"><span>Google Looker Studio</span><span>85%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 85%;"></div></div>
+        <div class="skill-card">
+            <h4>AI Automation</h4>
+            <p>Utilizing OpenAI / ChatGPT for reporting automation and User Defined Functions (UDF).</p>
         </div>
-        <div class="skill-bar">
-            <div class="skill-info"><span>AI Automation (OpenAI/GPT)</span><span>90%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 90%;"></div></div>
+        <div class="skill-card">
+            <h4>Leadership</h4>
+            <p>Task delegation, Performance monitoring, Team coordination, and Schedule management.</p>
         </div>
     </div>
 </section>
@@ -212,8 +188,8 @@
     <span class="section-tag">Academic</span>
     <h2 class="section-title">Education</h2>
     <div class="info-grid">
-        <div class="info-card"><h4>BS in Business Administration</h4><p>Polytechnic University of the Philippines</p></div>
-        <div class="info-card"><h4>Diploma in Computer Programming</h4><p>Pamantasan ng Lungsod ng Marikina</p></div>
+        <div class="info-card"><h4>BS in Business Administration</h4><p>Polytechnic University of the Philippines | Marketing Management</p></div>
+        <div class="info-card"><h4>Diploma in Computer Programming</h4><p>Pamantasan ng Lungsod ng Marikina | Hardware and Software</p></div>
     </div>
 </section>
 
