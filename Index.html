@@ -1,0 +1,255 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+    :root {
+        --primary: #0f172a;
+        --accent: #ff4d4d; 
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --white: #ffffff;
+        --bg: #f8fafc;
+    }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--white);
+        color: var(--text-main);
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    /* Floating Navigation */
+    .nav-bar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 8%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--primary); }
+    .nav-links { display: flex; gap: 25px; }
+    .nav-links a { 
+        text-decoration: none; 
+        color: var(--text-main); 
+        font-size: 0.7rem; 
+        font-weight: 800; 
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.3s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hero Section */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10%;
+        background: radial-gradient(circle at 75% 50%, #f8fafc 0%, #ffffff 100%);
+    }
+
+    .hero-text { max-width: 600px; }
+    .hero-text h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-main); margin-bottom: 10px; font-weight: 400; }
+    .hero-text h2 { font-size: 4.5rem; margin: 0; font-weight: 800; line-height: 0.9; color: var(--primary); }
+    .hero-text h2 span { color: var(--accent); }
+    .hero-text p { color: var(--text-muted); font-size: 0.95rem; margin: 30px 0; max-width: 480px; text-align: left; }
+
+    .hero-img-container { width: 450px; height: 550px; position: relative; }
+    .hero-img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1)); }
+
+    /* Content Sections */
+    section.content-block { padding: 100px 10%; background: var(--bg); }
+    .section-title { margin-bottom: 50px; }
+    .section-title h2 { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 0; }
+    .section-title .underline { width: 50px; height: 5px; background: var(--accent); margin-top: 10px; }
+
+    /* Experience Card */
+    .card { background: white; padding: 40px; border-radius: 24px; margin-bottom: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+    .job-title { font-size: 1.15rem; font-weight: 800; color: var(--primary); text-transform: uppercase; }
+    .job-date { font-weight: 700; color: var(--accent); font-size: 0.8rem; background: #fff1f1; padding: 6px 14px; border-radius: 50px; }
+    .company-name { display: block; font-weight: 600; color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem; }
+
+    .bullet-list { padding-left: 20px; margin: 0; }
+    .bullet-list li { font-size: 0.88rem; color: #475569; margin-bottom: 12px; line-height: 1.6; text-align: justify; }
+
+    /* Grid Layouts for Education/Certs/Skills */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .info-item { background: white; padding: 25px; border-radius: 15px; border-left: 4px solid var(--accent); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+    .info-item h4 { margin: 0 0 5px 0; font-size: 1rem; color: var(--primary); }
+    .info-item p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+
+    footer { padding: 40px 10%; background: var(--primary); color: white; text-align: center; font-size: 0.8rem; opacity: 0.7; }
+
+    @media (max-width: 1050px) {
+        .hero { flex-direction: column; text-align: center; height: auto; padding-top: 120px; padding-bottom: 50px; }
+        .hero-text h2 { font-size: 3rem; }
+        .hero-img-container { width: 300px; height: 350px; }
+        .nav-links { display: none; }
+    }
+</style>
+
+<nav class="nav-bar">
+    <div class="logo">ALIPAO</div>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <h3>Performance Analyst</h3>
+        <h2>HI! I'M <span>MARK.</span></h2>
+        <p>Expert Performance Analyst with JLL. Specialized in Power BI, Excel VBA automation, and providing high-level executive insights. Dedicated to operational excellence and data integrity.</p>
+        <div style="font-weight: 800; font-size: 0.85rem; letter-spacing: 1px; line-height: 2.2;">
+            <span style="color: var(--accent)">✉️ EMAIL:</span> markanthonyalipao@gmail.com <br>
+            <span style="color: var(--accent)">📱 MOBILE:</span> +63 956 3080 018 <br>
+            <span style="color: var(--accent)">🔗 LINKEDIN:</span> linkedin.com/in/mark-anthony-alipao-6b6058214 <br>
+            <span style="color: var(--accent)">📍 LOC:</span> Marikina City, Philippines
+        </div>
+    </div>
+    <div class="hero-img-container">
+        <img src="https://lh3.googleusercontent.com/d/1N-Zuffa0JYJrCjQWQaTiUsbliBqvYVGD" class="hero-img" alt="Mark Anthony Alipao">
+    </div>
+</section>
+
+<section class="content-block" id="skills">
+    <div class="section-title">
+        <h2>Technical Expertise</h2>
+        <div class="underline"></div>
+    </div>
+    <div class="info-grid">
+        <div class="info-item">
+            <h4>Power BI & Data Visualization</h4>
+            <p>DAX, Power Query (ETL), Relationship Mapping, Dashboard & Report Creation, Looker Studio.</p>
+        </div>
+        <div class="info-item">
+            <h4>Advanced Automation</h4>
+            <p>Excel Macro VBA, Office Script, Power Pivot, Google AppScript (CRUD, WebApp, Automation).</p>
+        </div>
+        <div class="info-item">
+            <h4>Data Management</h4>
+            <p>SQL (Select, From, Where, Group by), Power Query, Advanced Formulas (XLOOKUP, Sumifs).</p>
+        </div>
+        <div class="info-item">
+            <h4>AI Integration</h4>
+            <p>Utilizing Open AI / ChatGPT for UDF Automation and advanced reporting logic.</p>
+        </div>
+    </div>
+</section>
+
+<section class="content-block" id="experience" style="background: white;">
+    <div class="section-title">
+        <h2>Professional Experience</h2>
+        <div class="underline"></div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="job-title">Specialist – Performance Analyst</span>
+            <span class="job-date">June 2025 – Present</span>
+        </div>
+        <span class="company-name">Jones Lang LaSalle (JLL) – McKinley, Taguig City</span>
+        <ul class="bullet-list">
+            <li>Significantly enhanced organizational visibility and strategic decision-making by developing and distributing comprehensive Power BI reports and dashboards tracking all key performance indicators (KPIs), translating complex data into actionable executive insights.</li>
+            <li>Safeguarded business-critical data integrity by managing database performance, security protocols, and implementing Excel macros and VBA to automate reporting processes.</li>
+            <li>Monitored 32 key metrics across a multi-site property portfolio spanning facilities operations and transaction management, producing automated monthly, quarterly, and annual reports.</li>
+            <li>Maintained Service Level Agreement (SLA) compliance by tracking critical operational metrics across major commercial properties, reducing manual processing time by over 60%.</li>
+            <li>Account Champion for a leading Australian diagnostic imaging provider; oversee all Corrigo data requests and serve as primary liaison.</li>
+            <li>Directed quality assurance for Maintenance Planners, systematically identifying process discrepancies and providing targeted coaching to maintain service consistency.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="job-title">Senior Data Analyst</span>
+            <span class="job-date">June 2024 – May 2025</span>
+        </div>
+        <span class="company-name">Jones Lang LaSalle (JLL) – Taguig City</span>
+        <ul class="bullet-list">
+            <li>Served as the primary technical liaison for the Corrigo platform, troubleshooting complex system issues and resolving user queries to maintain operational continuity.</li>
+            <li>Safeguarded database integrity through proactive monitoring, regular audits, root cause analysis on data quality issues, and strict access controls.</li>
+            <li>Delivered bi-monthly executive presentations featuring data-driven strategic improvement recommendations and business intelligence.</li>
+            <li>Architected platform integrations for new client onboarding, including comprehensive configuration of properties, assets, and schedules.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="job-title">Branch Manager / Administrator</span>
+            <span class="job-date">March 2023 – June 2024</span>
+        </div>
+        <span class="company-name">Vision Express – Makati City</span>
+        <ul class="bullet-list">
+            <li>Directed end-to-end store operations including inventory management, receiving workflows, and P&L oversight with full accountability for sales performance and team management.</li>
+            <li>Built and developed high-performing retail team through end-to-end talent management including pre-employment interviews, new hire onboarding, and skills training.</li>
+            <li>Optimized workforce efficiency by managing staff scheduling, payroll documentation, and daily task delegation while monitoring productivity metrics.</li>
+            <li>Ensured operational excellence through strict SOP compliance, regular quality audits, and proactive identification of gaps to maintain company standards.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="job-title">Branch Supervisor cum Manager / Asst. Manager</span>
+            <span class="job-date">October 2014 – September 2022</span>
+        </div>
+        <span class="company-name">Landmark Group / Saudi Brothers Commercial – Saudi Arabia</span>
+        <ul class="bullet-list">
+            <li>Led frontline store operations, directing daily workflows and ensuring team alignment with company service standards and visual excellence.</li>
+            <li>Managed shrinkage prevention and operational compliance with full authority in the Manager's absence.</li>
+            <li>Certified Company Coach Buddy; designed and delivered training programs for store staff to enhance service quality.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="content-block" id="education">
+    <div class="section-title">
+        <h2>Education</h2>
+        <div class="underline"></div>
+    </div>
+    <div class="info-grid">
+        <div class="info-item">
+            <h4>B.S. in Business Administration</h4>
+            <p>Polytechnic University of the Philippines | Marketing Management</p>
+        </div>
+        <div class="info-item">
+            <h4>Diploma in Computer Programming</h4>
+            <p>Pamantasan ng Lungsod ng Marikina | Hardware and Software</p>
+        </div>
+    </div>
+</section>
+
+<section class="content-block" id="certifications" style="background: white;">
+    <div class="section-title">
+        <h2>Training & Certifications</h2>
+        <div class="underline"></div>
+    </div>
+    <div class="info-grid">
+        <div class="info-item"><h4>Google Data Analytics Professional</h4><p>Google</p></div>
+        <div class="info-item"><h4>ETL Data in Power BI</h4><p>Microsoft</p></div>
+        <div class="info-item"><h4>Certified Coach Buddy</h4><p>Landmark Arabia</p></div>
+        <div class="info-item"><h4>Lean Six Sigma White Belt</h4><p>MF Treinementos</p></div>
+        <div class="info-item"><h4>Lean Six Sigma Green Belt</h4><p>JLL (Ongoing)</p></div>
+        <div class="info-item"><h4>Excel Skills for Business</h4><p>Macquarie University</p></div>
+        <div class="info-item"><h4>Advanced Leadership Course</h4><p>OCCI</p></div>
+        <div class="info-item"><h4>Data Analytics Fundamentals</h4><p>Datasense Analytics</p></div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Mark Anthony Alipao. Thank you for visiting my portfolio site.</p>
+</footer>
