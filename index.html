@@ -13,7 +13,7 @@
             --text-main: #1e293b;
             --text-muted: #64748b;
             --white: #ffffff;
-            --bg: #f8fafc;
+            --bg-light: #f8fafc;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
@@ -23,116 +23,108 @@
             background-color: var(--white);
             color: var(--text-main);
             margin: 0;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Floating Navigation */
+        /* --- Navigation --- */
         .nav-bar {
             position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            top: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 8%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
             z-index: 1000;
-            border-bottom: 1px solid #f1f5f9;
         }
 
-        .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--primary); }
-        .nav-links { display: flex; gap: 25px; }
+        .logo { font-weight: 800; font-size: 1.6rem; letter-spacing: 3px; color: var(--primary); }
         .nav-links a { 
-            text-decoration: none; 
-            color: var(--text-main); 
-            font-size: 0.7rem; 
-            font-weight: 800; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            text-decoration: none; color: var(--text-main); 
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            margin-left: 30px; letter-spacing: 1px; transition: 0.3s;
         }
         .nav-links a:hover { color: var(--accent); }
 
-        /* Hero Section Fixed */
+        /* --- Hero Section --- */
         .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center; /* Centers the whole group */
-        gap: 50px;              /* Keeps a consistent gap between text and photo */
-        padding: 80px 8%;
-        background: radial-gradient(circle at 70% 50%, #f1f5f9 0%, #ffffff 100%);
-        overflow: hidden;
-    }
-
-    .hero-text { 
-        flex: 1; 
-        max-width: 550px; 
-        text-align: left;
-    }
-
-    /* THE IMAGE FIX */
-    .hero-img-container { 
-        flex: 1;
-        max-width: 450px; /* Limits how big it gets on giant screens */
-        display: flex;
-        justify-content: center;
-    }
-
-    .hero-img { 
-        width: 100%;
-        max-width: 400px; /* Keeps the photo sharp */
-        aspect-ratio: 4 / 5; /* Forces the professional portrait shape */
-        object-fit: cover; 
-        object-position: top;
-        border-radius: 24px;
-        box-shadow: 20px 20px 60px #d1d9e6, -5px -5px 20px #ffffff;
-    }
-
-    /* RESPONSIVE: For Tablets/Phones */
-    @media (max-width: 900px) {
-        .hero { 
-            flex-direction: column-reverse; /* Put photo on top or bottom for mobile */
-            text-align: center;
-            padding-top: 120px;
+            position: relative;
+            height: 100vh;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 10%;
+            background: #fdfdfd;
+            overflow: hidden;
         }
-        .hero-text { text-align: center; }
-        .hero-img-container { max-width: 300px; }
-    }
 
-        /* Content Sections */
-        section.content-block { padding: 100px 10%; background: var(--bg); }
-        .section-title { margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 0; }
-        .section-title .underline { width: 50px; height: 5px; background: var(--accent); margin-top: 10px; }
+        /* Background Geometric Elements */
+        .hero::before {
+            content: ''; position: absolute; top: 10%; left: 30%;
+            width: 100px; height: 100px; border: 2px solid #eee; border-radius: 50%;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: 15%; left: 10%;
+            width: 150px; height: 2px; background: #eee; transform: rotate(-45deg);
+        }
+        .circle-bg {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 600px; height: 600px; border: 1px solid #f1f1f1; border-radius: 50%; z-index: 0;
+        }
 
-        /* Experience Card */
-        .card { background: white; padding: 40px; border-radius: 24px; margin-bottom: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
-        .job-title { font-size: 1.15rem; font-weight: 800; color: var(--primary); text-transform: uppercase; }
-        .job-date { font-weight: 700; color: var(--accent); font-size: 0.8rem; background: #fff1f1; padding: 6px 14px; border-radius: 50px; }
-        .company-name { display: block; font-weight: 600; color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem; }
+        .hero-text { position: relative; z-index: 2; max-width: 500px; }
+        .hero-text h2 { font-size: 4.5rem; font-weight: 800; margin: 0; line-height: 1; }
+        .hero-text h2 span { color: var(--accent); }
+        .hero-text h4 { font-size: 1.2rem; font-weight: 600; color: #444; margin: 15px 0; text-transform: uppercase; letter-spacing: 2px; }
+        .hero-text p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; }
 
-        .bullet-list { padding-left: 20px; margin: 0; }
-        .bullet-list li { font-size: 0.88rem; color: #475569; margin-bottom: 12px; line-height: 1.6; text-align: justify; }
+        /* Social Icons under Text */
+        .social-mini { display: flex; gap: 15px; margin-top: 20px; }
+        .social-mini span { font-size: 1.2rem; cursor: pointer; color: #333; transition: 0.3s; }
+        .social-mini span:hover { color: var(--accent); }
 
-        /* Grid Layouts */
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-        .info-item { background: white; padding: 25px; border-radius: 15px; border-left: 4px solid var(--accent); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-        .info-item h4 { margin: 0 0 5px 0; font-size: 1rem; color: var(--primary); }
-        .info-item p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+        /* --- Image Container --- */
+        .hero-img-container {
+            position: relative;
+            z-index: 1;
+            height: 90%;
+            display: flex; align-items: flex-end;
+        }
 
-        footer { padding: 40px 10%; background: var(--primary); color: white; text-align: center; font-size: 0.8rem; opacity: 0.7; }
+        .hero-img {
+            height: 95%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.1));
+        }
 
-        /* Responsive Fixes */
-        @media (max-width: 1050px) {
-            .hero { flex-direction: column; text-align: center; height: auto; padding-top: 120px; }
-            .hero-text { margin-bottom: 50px; }
+        /* --- Floating Sidebar Actions --- */
+        .floating-actions {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .action-btn {
+            width: 60px; height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.2rem;
+            border: 1px solid #f1f5f9;
+        }
+        .action-btn:hover { transform: translateY(-5px); background: var(--accent); color: white; }
+
+        /* Mobile Fixes */
+        @media (max-width: 1000px) {
+            .hero { flex-direction: column; text-align: center; justify-content: center; padding-top: 100px; }
             .hero-text h2 { font-size: 3rem; }
-            .hero-text p { margin: 20px auto; }
-            .hero-img-container { width: 300px; height: 380px; }
-            .nav-links { display: none; }
+            .hero-img { height: 50%; }
+            .floating-actions { display: none; }
         }
     </style>
 </head>
@@ -150,121 +142,33 @@
 </nav>
 
 <section class="hero" id="home">
+    <div class="circle-bg"></div>
+    
     <div class="hero-text">
-        <h3>Performance Analyst</h3>
         <h2>HI! I'M <span>MARK.</span></h2>
-        <p>Expert Performance Analyst with JLL. Specialized in Power BI, Excel VBA automation, and providing high-level executive insights. Dedicated to operational excellence and data integrity.</p>
+        <h4>I AM AN EXPERT PERFORMANCE ANALYST</h4>
+        <p>Specialized in Power BI, Excel VBA automation, and providing high-level executive insights for JLL. Dedicated to operational excellence and data integrity.</p>
         
-        <div style="font-weight: 700; font-size: 0.9rem; line-height: 2;">
-            <span style="color: var(--accent)">✉️</span> markanthonyalipao@gmail.com<br>
-            <span style="color: var(--accent)">📱</span> +63 956 3080 018<br>
-            <span style="color: var(--accent)">🔗</span> linkedin.com/in/mark-anthony-alipao-6b6058214<br>
-            <span style="color: var(--accent)">📍</span> Marikina City, Philippines
+        <div style="font-size: 0.85rem; color: var(--text-main); margin-bottom: 20px;">
+            <strong>✉️</strong> markanthonyalipao@gmail.com <br>
+            <strong>📱</strong> +63 956 3080 018
+        </div>
+
+        <div class="social-mini">
+            <span>Linked In</span> | <span>GitHub</span> | <span>YouTube</span>
         </div>
     </div>
 
     <div class="hero-img-container">
         <img src="IMG_3884.jpg" alt="Mark Anthony Alipao" class="hero-img">
     </div>
-</section>
 
-<section class="content-block" id="skills">
-    <div class="section-title">
-        <h2>Technical Expertise</h2>
-        <div class="underline"></div>
-    </div>
-    <div class="info-grid">
-        <div class="info-item">
-            <h4>Power BI & Data Visualization</h4>
-            <p>DAX, Power Query (ETL), Relationship Mapping, Dashboard & Report Creation, Looker Studio.</p>
-        </div>
-        <div class="info-item">
-            <h4>Advanced Automation</h4>
-            <p>Excel Macro VBA, Office Script, Power Pivot, Google AppScript (CRUD, WebApp, Automation).</p>
-        </div>
-        <div class="info-item">
-            <h4>Data Management</h4>
-            <p>SQL (Select, From, Where, Group by), Power Query, Advanced Formulas (XLOOKUP, Sumifs).</p>
-        </div>
-        <div class="info-item">
-            <h4>AI Integration</h4>
-            <p>Utilizing Open AI / ChatGPT for UDF Automation and advanced reporting logic.</p>
-        </div>
+    <div class="floating-actions">
+        <div class="action-btn">📤</div>
+        <div class="action-btn">🤍</div>
+        <div class="action-btn">🔖</div>
     </div>
 </section>
-
-<section class="content-block" id="experience" style="background: white;">
-    <div class="section-title">
-        <h2>Professional Experience</h2>
-        <div class="underline"></div>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <span class="job-title">Specialist – Performance Analyst</span>
-            <span class="job-date">June 2025 – Present</span>
-        </div>
-        <span class="company-name">Jones Lang LaSalle (JLL) – McKinley, Taguig City</span>
-        <ul class="bullet-list">
-            <li>Significantly enhanced organizational visibility and strategic decision-making by developing and distributing comprehensive Power BI reports and dashboards tracking all key performance indicators (KPIs).</li>
-            <li>Safeguarded business-critical data integrity by managing database performance, security protocols, and implementing Excel macros and VBA to automate reporting processes.</li>
-            <li>Monitored 32 key metrics across a multi-site property portfolio spanning facilities operations and transaction management.</li>
-            <li>Maintained Service Level Agreement (SLA) compliance by tracking critical operational metrics, reducing manual processing time by over 60%.</li>
-            <li>Account Champion for a leading Australian diagnostic imaging provider; oversee all Corrigo data requests.</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <span class="job-title">Senior Data Analyst</span>
-            <span class="job-date">June 2024 – May 2025</span>
-        </div>
-        <span class="company-name">Jones Lang LaSalle (JLL) – Taguig City</span>
-        <ul class="bullet-list">
-            <li>Served as the primary technical liaison for the Corrigo platform, troubleshooting complex system issues.</li>
-            <li>Safeguarded database integrity through proactive monitoring, regular audits, and root cause analysis.</li>
-            <li>Delivered bi-monthly executive presentations featuring data-driven strategic improvement recommendations.</li>
-        </ul>
-    </div>
-</section>
-
-<section class="content-block" id="education">
-    <div class="section-title">
-        <h2>Education</h2>
-        <div class="underline"></div>
-    </div>
-    <div class="info-grid">
-        <div class="info-item">
-            <h4>B.S. in Business Administration</h4>
-            <p>Polytechnic University of the Philippines | Marketing Management</p>
-        </div>
-        <div class="info-item">
-            <h4>Diploma in Computer Programming</h4>
-            <p>Pamantasan ng Lungsod ng Marikina | Hardware and Software</p>
-        </div>
-    </div>
-</section>
-
-<section class="content-block" id="certifications" style="background: white;">
-    <div class="section-title">
-        <h2>Training & Certifications</h2>
-        <div class="underline"></div>
-    </div>
-    <div class="info-grid">
-        <div class="info-item"><h4>Google Data Analytics Professional</h4><p>Google</p></div>
-        <div class="info-item"><h4>ETL Data in Power BI</h4><p>Microsoft</p></div>
-        <div class="info-item"><h4>Certified Coach Buddy</h4><p>Landmark Arabia</p></div>
-        <div class="info-item"><h4>Lean Six Sigma White Belt</h4><p>MF Treinementos</p></div>
-        <div class="info-item"><h4>Lean Six Sigma Green Belt</h4><p>JLL (Ongoing)</p></div>
-        <div class="info-item"><h4>Excel Skills for Business</h4><p>Macquarie University</p></div>
-        <div class="info-item"><h4>Advanced Leadership Course</h4><p>OCCI</p></div>
-        <div class="info-item"><h4>Data Analytics Fundamentals</h4><p>Datasense Analytics</p></div>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 Mark Anthony Alipao. Thank you for visiting my portfolio site.</p>
-</footer>
 
 </body>
 </html>
